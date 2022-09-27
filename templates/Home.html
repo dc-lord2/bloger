@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Gossip Girl</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <link rel="stylesheet" href="{{url_for('static', filename='css/home.css')}}">
+  
+  <link rel="icon" href="static/images/angel.svg" type="image/x-icon">
+
+</head>
+
+<body>
+  <header id="header">
+    <div class="container ">
+      <img src="static/images/logo2.png" alt="" style="width: 210px; height: 100px;">
+      
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="/home">Home</a></li>
+
+          <li class="dropdown"><a href="#"><span>Categories</span> </a>
+            <ul>
+              <li><a href="post">Sport</a></li>
+              <li><a href="post">Music</a></li>
+              <li><a href="post">Business</a></li>
+            </ul>
+          </li>
+
+          <li><a href="/login">LogIn</a></li>
+          <li><a href="/contact">Contact</a></li>
+
+        </ul>
+
+      </nav>
+      <div class="header-social-links">
+        <a href="contact"><ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="contact"><ion-icon name="logo-twitter"></ion-icon></a>
+        <a href="contact"><ion-icon name="logo-facebook"></ion-icon></a>
+        <a href="contact"><ion-icon name="logo-linkedin"></ion-icon></a>
+      </div>
+    </div>
+  </header><br><br>
+
+  <div style="color: green; text-align: center;">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <b>{{ message }}</b>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+  </div>
+  
+  <section id="blog">
+    <div class="head">
+        <span>Recent Posts</span>
+        <h3>Blog</h3>
+    </div>
+     <br>
+    {% for item in products %}
+    <div class="containeer">
+      <div class="box">
+        <a href="/post" class="sp"><b>{{item['category']}}</b> : {{item['title']}}</a>
+      </div>
+    </div>
+    {% endfor %}
+    
+  </section>
+ 
+  <footer id="footer">
+    <div class="basie">
+      <div class="base">
+        <div class="copyright">
+          &copy; Copyright <strong><span>GOSSIP GIRL</span></strong> . All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by Dc Lord
+        </div>
+      </div>
+      <div class="social-links">
+        <a href="contact"><ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="contact"><ion-icon name="logo-twitter"></ion-icon></a>
+        <a href="contact"><ion-icon name="logo-facebook"></ion-icon></a>
+        <a href="contact"><ion-icon name="logo-linkedin"></ion-icon></a>
+        <a href="contact"><ion-icon name="logo-google"></ion-icon></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i>^^</i></a>
+
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
